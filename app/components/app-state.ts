@@ -2,7 +2,11 @@ import { Ledger, LedgerItem, sortLedger } from "@fifo/ledger";
 import { readCsv } from "@fifo/csv-reader";
 import { useEffect } from "react";
 
-type ImportAppStateItem = { type: "importCoinbaseCsv"; data: string };
+type ImportAppStateItem = {
+  type: "importCoinbaseCsv";
+  data: string;
+  prefilledEurValues?: { [symbolDateKey: string]: number };
+};
 type DeleteRowAppStateItem = { type: "deleteRow"; rowId: string };
 type InsertRowAppStateItem = { type: "insertRow"; data: LedgerItem };
 type EditRowAppStateItem = { type: "editRow"; data: LedgerItem; note?: string };
